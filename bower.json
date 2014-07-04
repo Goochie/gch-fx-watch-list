@@ -1,0 +1,12 @@
+{
+    "name": "gch-fx-watch-list",
+    "version": "0.0.1",
+    "author": "Bill Gooch <billgch@gmail.com>",
+    "dependencies": {
+        "angular": "1.2.15",
+        "socket.io-client": "~0.9.16",
+        "socket.io": "~0.9.15",
+        "angular-socket-io": "~0.4.1"
+    }
+
+}

@@ -1,0 +1,69 @@
+/*
+Styles for fx market watch widjet
+*/
+
+#gchFxMarketWatch {
+
+    background: #000000;
+    width: 500px;
+    padding: 5px;
+    border-radius:5px;
+    color: #ffffff;
+}
+
+#gchFxMarketWatch:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/*
+--------------------------------------
+ITEM RENDERS
+--------------------------------------
+*/
+
+.fx-priceUp{
+    color:#008000;
+}
+
+.fx-priceDown{
+    color: red;
+}
+
+.fx-point{
+    font-weight:bold;
+
+}
+
+/*
+--------------------------------------
+GRID SYSTEM
+--------------------------------------
+*/
+
+[class*='col-'] {
+    float: left;
+}
+
+.col-1-4 {
+    width: 25%;
+    padding: 2px;
+
+    background: #474d53; /* Old browsers */
+    background: -moz-linear-gradient(top,  #474d53 1%, #32363a 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#474d53), color-stop(100%,#32363a)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #474d53 1%,#32363a 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #474d53 1%,#32363a 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #474d53 1%,#32363a 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #474d53 1%,#32363a 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#474d53', endColorstr='#32363a',GradientType=0 ); /* IE6-9 */
+
+}
+.col-1-4Header {
+      width: 25%;
+      padding: 2px;
+      background-color: #1C1E22;
+      font-weight: bold;
+
+  }
