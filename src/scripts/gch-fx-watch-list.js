@@ -66,7 +66,7 @@ angular.module("fxMarketWatchModule",['btford.socket-io']);
     ////////////////////////////////////////////////////////////
     angular
         .module('fxMarketWatchModule')
-        .directive('fxmarketWatch', fxMarketWatchDirective)
+        .directive('fxmarketWatchlist', fxMarketWatchDirective)
         .factory('fxPriceService', fxPriceService)
         // EVENTS
         .constant("SYMBOL_SELECTED_EVT","symbol_selected_evt");
