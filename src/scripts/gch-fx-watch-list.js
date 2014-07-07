@@ -14,39 +14,37 @@ angular.module("fxMarketWatchModule",['btford.socket-io']);
     //---------------------------------
     function fxMarketWatchDirective (fxPriceService){
 
-        function Controller ($scope, SYMBOL_SELECTED_EVT){
-
-            //EVENT HANDLERS
-            //----------------------------------------------------
-
-            $scope.symbolSelected = function(currency){
-                $scope.$emit(SYMBOL_SELECTED_EVT,currency);
-
-            }
-
-            //Socket HANDLERS
-            //----------------------------------------------------
-            $scope.$on('socket:fxPriceUpdate', function(event, data) {
-
-                $scope.rates  =  data.payload;
-            });
-
-            $scope.$on('socket:disconnected', function(event, data) {
-
-                console.log("The SOCKET has been disconnected");
-            });
-        }
-
-
-        // DIRECTIVE CONFIGURATION
         return {
 
             restrict:'E',
             replace:'true',
             //ISOLATE SCOPE
             scope: { },
+
             template: wacthlistTemplate()  ,
-            controller : Controller
+
+            controller : function($scope, SYMBOL_SELECTED_EVT){
+
+                //EVENT HANDLERS
+                //----------------------------------------------------
+
+                $scope.symbolSelected = function(currency){
+                    $scope.$emit(SYMBOL_SELECTED_EVT,currency);
+
+                }
+
+                //Socket HANDLERS
+                //----------------------------------------------------
+                $scope.$on('socket:fxPriceUpdate', function(event, data) {
+
+                    $scope.rates  =  data.payload;
+                });
+
+                $scope.$on('socket:disconnected', function(event, data) {
+
+                    console.log("The SOCKET has been disconnected");
+                });
+            }
         }
     }
 
@@ -64,7 +62,7 @@ angular.module("fxMarketWatchModule",['btford.socket-io']);
 
 
     ////////////////////////////////////////////////////////////
-    // ANGULAR CONFIGURATION
+    // Configure angular app
     ////////////////////////////////////////////////////////////
     angular
         .module('fxMarketWatchModule')
