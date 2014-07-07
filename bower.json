@@ -1,7 +1,25 @@
 {
-    "name": "gch-fx-watch-list",
+    "name": "gch-fx-watchlist",
     "version": "0.0.1",
     "author": "Bill Gooch <billgch@gmail.com>",
+    "description": "An fx watchlist that display data from true fx in conjunction with node fx-price-service package.",
+    "main": "['src/scripts/gch-fx-watch-list.js', 'src/styles/gch-fx-watch-list.css']",
+    "keywords": [
+        "AngularJS",
+        "fx",
+        "watch list",
+        "Forex"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "tests",
+        "demo",
+        ".gitignore",
+        ".jshintrc",
+        "Gruntfile.js",
+        "package.json"
+    ],
+
     "dependencies": {
         "angular": "1.2.15",
         "socket.io-client": "~0.9.16",
