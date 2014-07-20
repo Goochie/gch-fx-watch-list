@@ -1,0 +1,6 @@
+V IMPORTANT before running any of the integration tests ...........
+
+1. To run protactor you must have it installed along with a selenium server, to accomplish this follow all of the instructions
+here https://github.com/angular/protractor and specifically this tutorial https://github.com/angular/protractor/blob/master/docs/tutorial.md
+
+2. Start your selenium server via  the webdriver-manager start command
