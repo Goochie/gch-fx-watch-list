@@ -1,0 +1,38 @@
+html {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    background-color: #808080;
+}
+
+
+/* This parent can be any width and height */
+.block {
+    text-align: center;
+    background:#ccc;
+    margin-bottom:10px;
+}
+
+/* The ghost, nudged to maintain perfect centering */
+.block:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; /* Adjusts for spacing */
+}
+
+.centered {
+    margin-top: 50px;
+    display: inline-block;
+    vertical-align: middle;
+
+}
+
+
+
+
