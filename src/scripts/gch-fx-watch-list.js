@@ -4,7 +4,7 @@
  * Forex watchlist component
  */
 
-angular.module("fxMarketWatchModule",['btford.socket-io']);
+angular.module('fxMarketWatchModule',['btford.socket-io']);
 
 (function() {
 
@@ -22,7 +22,7 @@ angular.module("fxMarketWatchModule",['btford.socket-io']);
             $scope.symbolSelected = function(currency){
                 $scope.$emit(SYMBOL_SELECTED_EVT,currency);
 
-            }
+            };
 
             //Socket HANDLERS
             //----------------------------------------------------
@@ -33,7 +33,7 @@ angular.module("fxMarketWatchModule",['btford.socket-io']);
 
             $scope.$on('socket:disconnected', function(event, data) {
 
-                console.log("The SOCKET has been disconnected");
+                console.log('The SOCKET has been disconnected');
             });
         }
 
@@ -71,7 +71,7 @@ angular.module("fxMarketWatchModule",['btford.socket-io']);
         .directive('fxmarketWatchlist', fxMarketWatchDirective)
         .factory('fxPriceService', fxPriceService)
         // EVENTS
-        .constant("SYMBOL_SELECTED_EVT","symbol_selected_evt");
+        .constant('SYMBOL_SELECTED_EVT','symbol_selected_evt');
 
 
 
