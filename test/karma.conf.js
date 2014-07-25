@@ -6,10 +6,12 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     files: [
+      'lib/jquery/dist/jquery.min.js',
       '../demo/client/src/bower_components/angular/angular.js',
-      '../demo/client/src/bower_components/angular-socket-io/socket.js',
+
       'lib/angular-mocks/angular-mocks.js',
 
+      'lib/angular-socket.io-mock/angular-socket.io-mock.js',
       '../src/scripts/*.js',
       'unit/**/*.js'
 
@@ -17,9 +19,9 @@ module.exports = function(config) {
     ],
 
     exclude: [],
-    port: 8080,
+    port: 8090,
     logLevel: config.LOG_INFO,
-    autoWatch: false,
+    autoWatch: true,
 
     browsers: ['Chrome'],
 
