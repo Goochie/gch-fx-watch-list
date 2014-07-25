@@ -4,32 +4,32 @@
  * Forex watchlist component
  */
 
-angular.module('fxMarketWatchModule',['btford.socket-io']);
+angular.module('fxMarketWatchModule', ['btford.socket-io']);
 
-(function() {
+(function () {
 
     'use strict';
 
     // Directive
     //---------------------------------
-    function fxMarketWatchDirective (fxPriceService,SYMBOL_SELECTED_EVT){
+    function fxMarketWatchDirective(fxPriceService) {
 
-        function Controller ($scope, SYMBOL_SELECTED_EVT){
+        function Controller($scope, SYMBOL_SELECTED_EVT) {
 
-            $scope.symbolSelected = function(currency){
+            $scope.symbolSelected = function (currency) {
 
-                $scope.$emit(SYMBOL_SELECTED_EVT,currency);
+                $scope.$emit(SYMBOL_SELECTED_EVT, currency);
 
             };
 
             //Socket HANDLERS
             //----------------------------------------------------
-            $scope.$on('socket:fxPriceUpdate', function(event, data) {
+            $scope.$on('socket:fxPriceUpdate', function (event, data) {
 
-                $scope.rates  =  data.payload;
+                $scope.rates = data.payload;
             });
 
-            $scope.$on('socket:disconnected', function(event, data) {
+            $scope.$on('socket:disconnected', function (event, data) {
 
                 console.log('The SOCKET has been disconnected');
             });
@@ -39,22 +39,22 @@ angular.module('fxMarketWatchModule',['btford.socket-io']);
         // DIRECTIVE CONFIGURATION
         return {
 
-            restrict:'E',
-            replace:'true',
+            restrict: 'E',
+            replace: 'true',
             //ISOLATE SCOPE
             scope: { },
-            template: wacthlistTemplate()  ,
-            controller : Controller
+            template: wacthlistTemplate(),
+            controller: Controller
         }
     }
 
 
     // Service
     //---------------------------------
-    function fxPriceService(socketFactory){
+    function fxPriceService(socketFactory) {
 
         var socket = socketFactory();
-        socket.forward(['fxPriceUpdate','disconnected']);
+        socket.forward(['fxPriceUpdate', 'disconnected']);
 
         return socket;
 
@@ -69,31 +69,30 @@ angular.module('fxMarketWatchModule',['btford.socket-io']);
         .directive('fxmarketWatchlist', fxMarketWatchDirective)
         .factory('fxPriceService', fxPriceService)
         // EVENTS
-        .constant('SYMBOL_SELECTED_EVT','symbol_selected_evt');
-
+        .constant('SYMBOL_SELECTED_EVT', 'symbol_selected_evt');
 
 
     // Helper methods
     //-----------------------------------------------------------------
 
-    function wacthlistTemplate(){
+    function wacthlistTemplate() {
 
-        var tpl = '<div id="gchFxMarketWatch" >'+
-                    '<div>'+
-                        '<div class="col-1-4Header">Symbol</div>'+
-                        '<div class="col-1-4Header">Bid</div>'+
-                        '<div class="col-1-4Header">Ask</div>'+
-                        '<div class="col-1-4Header">Time</div>'+
-                    '</div>'+
-                    '<div class="symbol" ng-repeat="rate in rates" ng-click="symbolSelected(rate)">'+
-                        '<div class="col-1-4">{{rate.symbol}}</div>'+
-                        '<div class="col-1-4">{{rate.bidBig}}<span class="fx-point">{{rate.bidPoint}}</span>'+
-                        '<span  ng-class="{\'fa fa-arrow-down fx-priceDown\' : rate.bidBullBear == \'bear\', \'fa fa-arrow-up fx-priceUp\' : rate.bidBullBear == \'bull\' , \'fa fa-arrows-h fx-noChange\' : rate.bidBullBear == \'0\' }"></span></div>'+
-                        '<div class="col-1-4">{{rate.offerBig}}<span class="fx-point">{{rate.offerPoint}}</span>'+
-                        '<span  ng-class="{\'fa fa-arrow-down fx-priceDown\' : rate.offerBullBear == \'bear\', \'fa fa-arrow-up fx-priceUp\' : rate.offerBullBear == \'bull\', \'fa fa-arrows-h fx-noChange\' : rate.bidBullBear == \'0\'}"></span></div>'+
-                        '<div class="col-1-4">{{rate.timeStamp | date : \'hh:mm:ss\'}}</div>'+
-                    '</div>'+
-                '</div>';
+        var tpl = '<div id="gchFxMarketWatch" >' +
+            '<div>' +
+            '<div class="col-1-4Header">Symbol</div>' +
+            '<div class="col-1-4Header">Bid</div>' +
+            '<div class="col-1-4Header">Ask</div>' +
+            '<div class="col-1-4Header">Time</div>' +
+            '</div>' +
+            '<div class="symbol" ng-repeat="rate in rates" ng-click="symbolSelected(rate)">' +
+            '<div class="col-1-4">{{rate.symbol}}</div>' +
+            '<div class="col-1-4">{{rate.bidBig}}<span class="fx-point">{{rate.bidPoint}}</span>' +
+            '<span  ng-class="{\'fa fa-arrow-down fx-priceDown\' : rate.bidBullBear == \'bear\', \'fa fa-arrow-up fx-priceUp\' : rate.bidBullBear == \'bull\' , \'fa fa-arrows-h fx-noChange\' : rate.bidBullBear == \'0\' }"></span></div>' +
+            '<div class="col-1-4">{{rate.offerBig}}<span class="fx-point">{{rate.offerPoint}}</span>' +
+            '<span  ng-class="{\'fa fa-arrow-down fx-priceDown\' : rate.offerBullBear == \'bear\', \'fa fa-arrow-up fx-priceUp\' : rate.offerBullBear == \'bull\', \'fa fa-arrows-h fx-noChange\' : rate.bidBullBear == \'0\'}"></span></div>' +
+            '<div class="col-1-4">{{rate.timeStamp | date : \'hh:mm:ss\'}}</div>' +
+            '</div>' +
+            '</div>';
 
 
         return tpl;

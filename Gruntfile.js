@@ -13,7 +13,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-html2js');
     require('time-grunt')(grunt);
 
-    var path = require("path");
+    var path = require('path');
 
 
     grunt.initConfig({
@@ -26,8 +26,7 @@ module.exports = function(grunt) {
         jshint: {
             files: [
                 'Gruntfile.js',
-                'src/scripts/**/*.js',
-                'demo/**/*.js'
+                'src/scripts/**/*.js'
             ],
             options: {
                 jshintrc: '.jshintrc',
@@ -106,16 +105,16 @@ module.exports = function(grunt) {
 
         protractor: {
             options: {
-                configFile: "node_modules/protractor/referenceConf.js", // Default config file
+                configFile: 'node_modules/protractor/referenceConf.js', // Default config file
                 keepAlive: true, // If false, the grunt process stops when the test fails.
                 noColor: false, // If true, protractor will not use colors in its output.
                 args: {
                     // Arguments passed to the command
                 }
             },
-            your_target: {
+            customTarget: {
                 options: {
-                    configFile: "test/protractorConf.js", // Target-specific config file
+                    configFile: 'test/protractorConf.js', // Target-specific config file
                     args: {}
                 }
             }
