@@ -17,7 +17,7 @@
     "grunt-karma": "^0.8.3",
     "karma-jasmine": "^0.1.5",
     "karma-chrome-launcher": "^0.1.4",
-    "grunt-html2js": "^0.2.8"
+    "grunt-html2js": "^0.2.8",
     "jshint-stylish-ex": "^0.2.0",
     "grunt-protractor-runner": "^1.0.1"
 

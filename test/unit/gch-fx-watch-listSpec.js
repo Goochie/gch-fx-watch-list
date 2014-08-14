@@ -28,7 +28,6 @@ describe('Market watch widget :: ', function(){
         spyOn(isoScope, "$emit")
         isoScope.symbolSelected(currencyObj)
 
-
         expect(isoScope.$emit).toHaveBeenCalledWith(SYMBOL_SELECTED_EVT,currencyObj);
 
     }));
