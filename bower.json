@@ -17,7 +17,8 @@
     ".gitignore",
     ".jshintrc",
     "Gruntfile.js",
-    "package.json"
+    "package.json",
+    "src"
   ],
   "dependencies": {
     "angular": "1.2.15",
