@@ -39,7 +39,7 @@ module.exports = function(grunt) {
         cssmin: {
             build: {
                 files: {
-                    'dist/gch-fx-watch-list.min.css': 'src/styles/gch-fx-watch-list.css'
+                    'dist/gch-fx-watch-list.min.css': 'src/**/*.js'
                 }
             }
         },
