@@ -1,6 +1,6 @@
 {
   "name": "gch-fx-watchlist",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Bill Gooch <billgch@gmail.com>",
   "description": "An fx watchlist that display data from true fx in conjunction with node fx-price-service package.",
   "main": "['src/scripts/gch-fx-watch-list.js', 'src/styles/gch-fx-watch-list.css']",
