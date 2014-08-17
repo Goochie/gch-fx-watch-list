@@ -62,7 +62,7 @@ angular.module('fxMarketWatchModule', ['btford.socket-io']);
 
 
     ////////////////////////////////////////////////////////////
-    // ANGULAR CONFIGURATION
+    // CONFIGURATION
     ////////////////////////////////////////////////////////////
     angular
         .module('fxMarketWatchModule')
